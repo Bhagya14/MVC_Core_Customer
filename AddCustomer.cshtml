@@ -1,0 +1,81 @@
+﻿@model MVC_Core_Customer.Models.CustomerModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCustomer</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+</head>
+<body>
+
+
+    <div class="row">
+        <h4>CustomerModel</h4>
+        <hr />
+        <div >
+            <form asp-action="AddCustomer" asp-controller="Home" class="container"
+                             style="width:45%;text-align:left;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               
+                <div class="form-group">
+                    <label asp-for="CustomerName" class="control-label"></label>
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerCity" class="control-label"></label>
+                    <input asp-for="CustomerCity" class="form-control" />
+                    <span asp-validation-for="CustomerCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerPassword" class="control-label"></label>
+                    <input asp-for="CustomerPassword" class="form-control" />
+                    <span asp-validation-for="CustomerPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="NewCustomer" class="btn btn-default" />
+                    <a asp-action="Login" asp-controller="Home">Login</a>
+                    <br />
+                    <label class="text-success">@ViewBag.msg</label>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
